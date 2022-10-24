@@ -7,8 +7,8 @@ stages:
       md5: 16122879245c97cc5287991276bdbabc
       size: 593
     - path: regression-data/regression_data.csv
-      md5: 9846d9f70c0f764f17deb702e1980ce1
-      size: 11278
+      md5: 0c80e44006ff212fabf7fa1abd90cc86
+      size: 11266
     params:
       params.yaml:
         filter.value: 1.2
@@ -16,4 +16,25 @@ stages:
     - path: output/filter
       md5: ed9f1c8e6588814fd87b6aad7c5deb4b.dir
       size: 1191
+      nfiles: 1
+  training:
+    cmd: python3 training.py output/filter
+    deps:
+    - path: output/filter
+      md5: ed9f1c8e6588814fd87b6aad7c5deb4b.dir
+      size: 1191
+      nfiles: 1
+    - path: regression-data/regression_data.csv
+      md5: 0c80e44006ff212fabf7fa1abd90cc86
+      size: 11266
+    - path: training.py
+      md5: 4a185ec98ca09c892d2ac878dd7765b1
+      size: 913
+    params:
+      params.yaml:
+        training.num_rows: 5
+    outs:
+    - path: output/training
+      md5: e0df6176907fd9fe55fba07be5387d63.dir
+      size: 18
       nfiles: 1
