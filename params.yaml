@@ -1,0 +1,4 @@
+filter:
+  value: 1.3 # y-values exceeding this value are kept in the filtered df
+training:
+  num_rows: 3
