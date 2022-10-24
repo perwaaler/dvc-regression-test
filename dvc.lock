@@ -1,0 +1,19 @@
+schema: '2.0'
+stages:
+  filter:
+    cmd: python3 filter.py
+    deps:
+    - path: filter.py
+      md5: 16122879245c97cc5287991276bdbabc
+      size: 593
+    - path: regression-data/regression_data.csv
+      md5: 9846d9f70c0f764f17deb702e1980ce1
+      size: 11278
+    params:
+      params.yaml:
+        filter.value: 1.2
+    outs:
+    - path: output/filter
+      md5: ed9f1c8e6588814fd87b6aad7c5deb4b.dir
+      size: 1191
+      nfiles: 1
