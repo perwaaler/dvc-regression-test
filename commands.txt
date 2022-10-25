@@ -16,7 +16,7 @@ python3 src/filter.py
 dvc run --force \
 -n training \
 -d src/training.py -d output/filter \
--p parameters/params.yaml:raining.num_rows \
+-p parameters/params.yaml:training.num_rows \
 -o output/training \
 python3 src/training.py output/filter
 

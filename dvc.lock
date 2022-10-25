@@ -25,8 +25,8 @@ stages:
       size: 1250
       nfiles: 1
     - path: src/training.py
-      md5: c265a3ff2a8b11be7d610cf079b5cde2
-      size: 973
+      md5: c7465a66343c1f218934e88a856b846f
+      size: 1296
     params:
       parameters/params.yaml:
         training.num_rows: 50
