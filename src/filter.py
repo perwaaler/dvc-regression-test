@@ -1,3 +1,5 @@
+# in this script, I extract a subset of the data to work with
+
 import pandas as pd
 import yaml
 import sys
