@@ -28,10 +28,10 @@ os.makedirs(os.path.join("output","training"), exist_ok=True)
 output_training = os.path.join("output","training","out.csv")
 
 ### linear regression ###
-p = 1
+p = 3
 print(p)
 x = df.x1
-A = np.vstack([x, x**p, np.ones(len(x))]).T
+A = np.vstack([x, np.abs(x)**p, np.ones(len(x))]).T
 y = df.y
 c = np.linalg.lstsq(A, y)[0]
 y_pred = A @ c.T
