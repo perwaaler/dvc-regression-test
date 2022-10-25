@@ -8,16 +8,16 @@ command to run stage
 
 dvc run --force \
 -n filter \
--d filter.py -d regression-data/regression_data.csv \
--p filter.value \
+-d src/filter.py -d data/data.csv \
+-p parameters/params.yaml:filter.value \
 -o output/filter \
-python3 filter.py
+python3 src/filter.py
 
 dvc run --force \
 -n training \
--p training.num_rows \
--d training.py -d output/filter -d regression-data/regression_data.csv \
+-d src/training.py -d output/filter \
+-p parameters/params.yaml:raining.num_rows \
 -o output/training \
-python3 training.py output/filter
+python3 src/training.py output/filter
 
 dvc dag

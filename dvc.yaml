@@ -1,20 +1,21 @@
 stages:
   filter:
-    cmd: python3 filter.py
+    cmd: python3 src/filter.py
     deps:
-    - filter.py
-    - regression-data/regression_data.csv
+    - data/data.csv
+    - src/filter.py
     params:
-    - filter.value
+    - parameters/params.yaml:
+      - filter.value
     outs:
     - output/filter
   training:
-    cmd: python3 training.py output/filter
+    cmd: python3 src/training.py output/filter
     deps:
     - output/filter
-    - regression-data/regression_data.csv
-    - training.py
+    - src/training.py
     params:
-    - training.num_rows
+    - parameters/params.yaml:
+      - training.num_rows
     outs:
     - output/training
