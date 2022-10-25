@@ -1,0 +1,23 @@
+
+## format ##
+-n --> name of stage of stage
+-d --> dependencies of stage (can be data and files)
+-p --> parameters of stage (in the below case, a workspace variable called filter.value)
+-o --> output of stage
+command to run stage
+
+dvc run --force \
+-n filter \
+-d filter.py -d regression-data/regression_data.csv \
+-p filter.value \
+-o output/filter \
+python3 filter.py
+
+dvc run --force \
+-n training \
+-p training.num_rows \
+-d training.py -d output/filter -d regression-data/regression_data.csv \
+-o output/training \
+python3 training.py output/filter
+
+dvc dag
