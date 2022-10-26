@@ -50,6 +50,6 @@ results = {
 json_object = json.dumps(results, indent=4)
  
 # Writing to sample.json
-with open("output/metrics/sample.json", "w") as outfile:
+with open("output/metrics/metric.json", "w") as outfile:
     outfile.write(json_object)
 

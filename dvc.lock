@@ -45,9 +45,13 @@ stages:
       md5: 6a7de70b61ee1ed0277c4a3d6b4992ee
       size: 502
     - path: src/evaluate.py
-      md5: cd5a66cccefd08df5939ab2d280b3107
+      md5: 5cebafba980ffb67908daa612817ca42
       size: 1372
     params:
       parameters/params.yaml:
         training.p1: 2
         training.p2: 2
+    outs:
+    - path: output/metrics/metric.json
+      md5: 57ccc6e8b7ab0b472d04baba336b5623
+      size: 66

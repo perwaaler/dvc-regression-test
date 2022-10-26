@@ -24,6 +24,7 @@ dvc run --force \
 -n evaluate \
 -d src/evaluate.py -d output/filter/out.csv -d output/model/trained_model.sav \
 -p parameters/params.yaml:training.p1 -p parameters/params.yaml:training.p2 \
+-M output/metrics/metric.json \
 python3 src/evaluate.py
 
 dvc dag

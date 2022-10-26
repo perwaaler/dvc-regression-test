@@ -30,3 +30,6 @@ stages:
     - parameters/params.yaml:
       - training.p1
       - training.p2
+    metrics:
+    - output/metrics/metric.json:
+        cache: false
