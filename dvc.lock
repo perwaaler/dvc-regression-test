@@ -7,31 +7,47 @@ stages:
       md5: 0c80e44006ff212fabf7fa1abd90cc86
       size: 11266
     - path: src/filter.py
-      md5: 33e15dec66885ecafab9d6868349e37f
-      size: 677
+      md5: 8020bbc76f4c65c1006d3fb3540fb7a1
+      size: 739
     params:
       parameters/params.yaml:
         filter.value: 1.1
     outs:
-    - path: output/filter
-      md5: ce3b580ccc7150b1b7922e0172587430.dir
+    - path: output/filter/out.csv
+      md5: d684f3904d7f22fb7ccc52e3f2ce88a7
       size: 1250
-      nfiles: 1
   training:
     cmd: python3 src/training.py output/filter
     deps:
-    - path: output/filter
-      md5: ce3b580ccc7150b1b7922e0172587430.dir
+    - path: output/filter/out.csv
+      md5: d684f3904d7f22fb7ccc52e3f2ce88a7
       size: 1250
-      nfiles: 1
     - path: src/training.py
-      md5: 0faebaaa75b9a9429e4b64d10776158a
-      size: 1304
+      md5: 4d7a51f2ec595382124a0160d2f1306c
+      size: 1598
     params:
       parameters/params.yaml:
         training.num_rows: 50
     outs:
-    - path: output/training
-      md5: 42389b1175cbcbd5b11294310a261168.dir
+    - path: output/model/trained_model.sav
+      md5: 6a7de70b61ee1ed0277c4a3d6b4992ee
+      size: 502
+    - path: output/training/out.csv
+      md5: 2acb3dc3bf3bc7088394b14b966ee8a9
       size: 18
-      nfiles: 1
+  evaluate:
+    cmd: python3 src/evaluate.py
+    deps:
+    - path: output/filter/out.csv
+      md5: d684f3904d7f22fb7ccc52e3f2ce88a7
+      size: 1250
+    - path: output/model/trained_model.sav
+      md5: 6a7de70b61ee1ed0277c4a3d6b4992ee
+      size: 502
+    - path: src/evaluate.py
+      md5: cd5a66cccefd08df5939ab2d280b3107
+      size: 1372
+    params:
+      parameters/params.yaml:
+        training.p1: 1
+        training.p2: 2

@@ -6,6 +6,8 @@ import sys
 import os
 import io
 
+print("current working directory is {}".format(os.getcwd()))
+
 # load filtration stage parameters:
 params = yaml.safe_load(open("parameters/params.yaml"))['filter']
 print(params)

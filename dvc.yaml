@@ -8,14 +8,25 @@ stages:
     - parameters/params.yaml:
       - filter.value
     outs:
-    - output/filter
+    - output/filter/out.csv
   training:
     cmd: python3 src/training.py output/filter
     deps:
-    - output/filter
+    - output/filter/out.csv
     - src/training.py
     params:
     - parameters/params.yaml:
       - training.num_rows
     outs:
-    - output/training
+    - output/model/trained_model.sav
+    - output/training/out.csv
+  evaluate:
+    cmd: python3 src/evaluate.py
+    deps:
+    - output/filter/out.csv
+    - output/model/trained_model.sav
+    - src/evaluate.py
+    params:
+    - parameters/params.yaml:
+      - training.p1
+      - training.p2

@@ -10,14 +10,20 @@ dvc run --force \
 -n filter \
 -d src/filter.py -d data/data.csv \
 -p parameters/params.yaml:filter.value \
--o output/filter \
+-o output/filter/out.csv \
 python3 src/filter.py
 
 dvc run --force \
 -n training \
--d src/training.py -d output/filter \
+-d src/training.py -d output/filter/out.csv \
 -p parameters/params.yaml:training.num_rows \
--o output/training \
+-o output/training/out.csv -o output/model/trained_model.sav \
 python3 src/training.py output/filter
+
+dvc run --force \
+-n evaluate \
+-d src/evaluate.py -d output/filter/out.csv -d output/model/trained_model.sav \
+-p parameters/params.yaml:training.p1 -p parameters/params.yaml:training.p2 \
+python3 src/evaluate.py
 
 dvc dag
