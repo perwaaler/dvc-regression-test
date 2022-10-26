@@ -2,5 +2,5 @@ filter:
   value: -10 # y-values exceeding this value are kept in the filtered df
 training:
   num_rows: 100
-  p1: 2
+  p1: 1
   p2: 2

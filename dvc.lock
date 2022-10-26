@@ -49,9 +49,9 @@ stages:
       size: 1372
     params:
       parameters/params.yaml:
-        training.p1: 2
+        training.p1: 1
         training.p2: 2
     outs:
     - path: output/metrics/metric.json
-      md5: 11766caff71542bb67ce3292e3e9b73a
-      size: 66
+      md5: e51ec131586ffab608f818f7ccbb5c17
+      size: 67
