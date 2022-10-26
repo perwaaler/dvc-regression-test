@@ -27,14 +27,14 @@ stages:
       size: 1598
     params:
       parameters/params.yaml:
-        training.num_rows: 50
+        training.num_rows: 100
     outs:
     - path: output/model/trained_model.sav
-      md5: cb3661cbdb89b68545d176d4c392fe71
+      md5: add488553da3f083945157ede3893dfd
       size: 502
     - path: output/training/out.csv
-      md5: e73f9df6afdfe862f0d20df155b94c59
-      size: 17
+      md5: 5fc6be687738a718e8af9f82998ccfcd
+      size: 18
   evaluate:
     cmd: python3 src/evaluate.py
     deps:
@@ -42,7 +42,7 @@ stages:
       md5: f1236a96414fc503f5e3a5cbbf12444c
       size: 3909
     - path: output/model/trained_model.sav
-      md5: cb3661cbdb89b68545d176d4c392fe71
+      md5: add488553da3f083945157ede3893dfd
       size: 502
     - path: src/evaluate.py
       md5: 5cebafba980ffb67908daa612817ca42
@@ -53,5 +53,5 @@ stages:
         training.p2: 2
     outs:
     - path: output/metrics/metric.json
-      md5: 207a539926d0cd1bf877609fb98fba50
-      size: 67
+      md5: 2d8ee1da2cd6d94a3a8ebca107feb713
+      size: 64
