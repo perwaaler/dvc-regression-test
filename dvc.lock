@@ -49,5 +49,5 @@ stages:
       size: 1372
     params:
       parameters/params.yaml:
-        training.p1: 1
+        training.p1: 2
         training.p2: 2
