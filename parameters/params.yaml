@@ -1,6 +1,6 @@
 filter:
-  value: 0.5 # y-values exceeding this value are kept in the filtered df
+  value: -10 # y-values exceeding this value are kept in the filtered df
 training:
   num_rows: 100
-  p1: 3
+  p1: 2
   p2: 2

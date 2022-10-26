@@ -11,17 +11,17 @@ stages:
       size: 739
     params:
       parameters/params.yaml:
-        filter.value: 0.5
+        filter.value: -10
     outs:
     - path: output/filter/out.csv
-      md5: f1236a96414fc503f5e3a5cbbf12444c
-      size: 3909
+      md5: 621e4ab5adf60a0f5a67fd55e9546145
+      size: 11743
   training:
     cmd: python3 src/training.py output/filter
     deps:
     - path: output/filter/out.csv
-      md5: f1236a96414fc503f5e3a5cbbf12444c
-      size: 3909
+      md5: 621e4ab5adf60a0f5a67fd55e9546145
+      size: 11743
     - path: src/training.py
       md5: 4d7a51f2ec595382124a0160d2f1306c
       size: 1598
@@ -30,28 +30,28 @@ stages:
         training.num_rows: 100
     outs:
     - path: output/model/trained_model.sav
-      md5: add488553da3f083945157ede3893dfd
+      md5: ab3526fc6ec64a060085e64f7a541b2e
       size: 502
     - path: output/training/out.csv
-      md5: 5fc6be687738a718e8af9f82998ccfcd
-      size: 18
+      md5: b4d86b7e42faf19229156fcf0a11aa17
+      size: 19
   evaluate:
     cmd: python3 src/evaluate.py
     deps:
     - path: output/filter/out.csv
-      md5: f1236a96414fc503f5e3a5cbbf12444c
-      size: 3909
+      md5: 621e4ab5adf60a0f5a67fd55e9546145
+      size: 11743
     - path: output/model/trained_model.sav
-      md5: add488553da3f083945157ede3893dfd
+      md5: ab3526fc6ec64a060085e64f7a541b2e
       size: 502
     - path: src/evaluate.py
       md5: 5cebafba980ffb67908daa612817ca42
       size: 1372
     params:
       parameters/params.yaml:
-        training.p1: 3
+        training.p1: 2
         training.p2: 2
     outs:
     - path: output/metrics/metric.json
-      md5: 2d8ee1da2cd6d94a3a8ebca107feb713
-      size: 64
+      md5: 11766caff71542bb67ce3292e3e9b73a
+      size: 66
